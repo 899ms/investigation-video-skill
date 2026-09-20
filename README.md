@@ -57,7 +57,7 @@
 | Remotion | 4.0.508，固定 |
 | React | 19.2.8，固定 |
 | FFmpeg、yt-dlp | Homebrew 安装 |
-| Python 3 + Pillow | 封面字标、验收脚本 |
+| Python 3 + Pillow | 封面字标、验收脚本，`pip3 install pillow` |
 | 字体 | SignPainter（macOS 自带，Windows 需单独安装）、Noto Sans SC（已在 template 内） |
 
 Remotion 和 React 版本不要升。升级后出现过动画节奏错乱、布局漂移和黑帧，固定这组版本后全部消失。

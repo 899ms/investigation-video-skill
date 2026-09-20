@@ -22,7 +22,7 @@ work/
     audio-manifest-s20.json     全部句子的时长与 words
     preview-*.mp3               无停顿拼接试听
     asr/ asr.py                 仅回退用（旧音频无 words 时）
-    subtitles-volc.py           字幕对齐（skill assets 复制来）
+    subtitles-volc.py           字幕对齐（skill scripts 复制来）
     design.py                   分镜：SRC 源表 → shots/cuts → timeline.json + 裁切
     clips.json                  裁切清单（源、起点、帧数）
     renderer/

@@ -70,7 +70,7 @@ description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，�
 
 ## 制作与交付
 
-使用 Remotion 帧动画，音轨由 FFmpeg 合成，**成片必须混入闪避配乐**（配方见 [管线手册](references/pipeline-playbook.md)）。字幕时间戳直接取火山 TTS 返回的逐字 `words`（2.0 音色须在 `audio_params` 传 `enable_subtitle: true`，`scripts/tts.mjs` 已默认打开），用 `assets/subtitles-volc.py` 对齐；只有缺 words 的旧音频才回退 whisper。已有工程优先局部修改；先关键帧核对 Logo、字体、文字、素材，再整片渲染。依赖与路径查实际环境，不靠固定 localhost 端口判断当前项目。
+使用 Remotion 帧动画，音轨由 FFmpeg 合成，**成片必须混入闪避配乐**（配方见 [管线手册](references/pipeline-playbook.md)）。字幕时间戳直接取火山 TTS 返回的逐字 `words`（2.0 音色须在 `audio_params` 传 `enable_subtitle: true`，`scripts/tts.mjs` 已默认打开），用 `scripts/subtitles-volc.py` 对齐；只有缺 words 的旧音频才回退 whisper。已有工程优先局部修改；先关键帧核对 Logo、字体、文字、素材，再整片渲染。依赖与路径查实际环境，不靠固定 localhost 端口判断当前项目。
 
 完整成片片尾默认有简短点赞、收藏、关注CTA；结合本期价值，沿用已确认音色，重新核对新增字幕和总时长。
 
@@ -90,7 +90,7 @@ description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，�
 - `assets/brand-stamp.py`：封面字标固定合成（右上角、22% 宽，与视频字标同几何）；生图不再画签名。
 - `assets/publishing-reference/八平台发布文案-模板.md` + `assets/check-publish-copy.py`：发布文案固定模板与校验，平台顺序、字段、章节、置顶评论都固定；文案写完必须校验通过。
 - `assets/finalize-outputs.py`：收尾固定生成 `outputs/<题名>-完整交付v<N>/`（成片/字幕/使用区间实体拷贝，文档与发布包软链到知识库），每期必须用它，不手工建 outputs。
-- `assets/subtitles-volc.py`：字幕对齐脚本，优先用火山逐字时间戳，缺失回退 whisper；复制到工程 `work/production/` 使用。
+- `scripts/subtitles-volc.py`：字幕对齐脚本，优先用火山逐字时间戳，缺失回退 whisper；复制到工程 `work/production/` 使用。
 - `assets/reference-project/`：仅作已认可案例参考，不能把案例正文、日期、金额当通用默认。
 - 样片压缩版 `assets/sample-preview.mp4`；最小 Remotion 参考工程在 `template/remotion/`。
 

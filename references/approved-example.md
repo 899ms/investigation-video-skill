@@ -6,9 +6,7 @@
 
 ## 先看
 
-- [已确认视频](../assets/approved-preview.mp4)
-- [三段预览](../assets/approved-frames.jpg)
-- `assets/approved-checksums.json` 记录上述原交付文件的 SHA256。
+- 原始 30 秒样片、拼板与校验和未随开源仓库附带；公开样片见 [assets/sample-preview.mp4](../assets/sample-preview.mp4)。
 
 这是《幽灵外卖》竞价和资金拆解节选，不是可循环拼成整片的模板：
 

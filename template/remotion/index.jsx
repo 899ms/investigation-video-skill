@@ -1,6 +1,6 @@
 import React from 'react';
 import {registerRoot,Composition,AbsoluteFill,Sequence,Img,OffthreadVideo,Audio,staticFile,useCurrentFrame,interpolate,Easing} from 'remotion';
-import {SimonTalkBrand} from '../SimonTalkBrand';
+import {SimonTalkBrand} from '../../assets/SimonTalkBrand.jsx';
 import timeline from './timeline.json';
 const G='#10C46F', W='#f4f5ef', I='#19221e';
 const a=n=>staticFile('assets/'+n);

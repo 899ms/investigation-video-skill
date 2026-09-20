@@ -5,6 +5,7 @@
 每个平台含 主推标题/备选标题/正文/（共用免责段）；标题字数硬限制（含标点）：小红书≤20，抖音/快手/视频号/公众号≤30，B站/YouTube/知乎≤40；顶部须有"标题公式（dbs-xhs-title）："行；B站与 YouTube 含"章节："；B站含"本期结构："；抖音/快手/B站/视频号/小红书含"置顶评论："；公众号含"摘要："。
 """
 import sys,re
+if len(sys.argv)<2 or sys.argv[1] in('-h','--help'):print('用法: python3 check-publish-copy.py <八平台发布文案.md>');sys.exit(2)
 s=open(sys.argv[1]).read();bad=[];warn=[]
 if not re.search(r'^对应：',s,re.M): bad.append('缺顶部"对应："说明块')
 if '共用免责段（各平台正文末尾）' not in s: bad.append('缺顶部"共用免责段（各平台正文末尾）"')

@@ -43,7 +43,7 @@
 
 ## 6. 字幕、渲染、混音、验收
 
-- **字幕时间戳直接来自火山**：`scripts/tts.mjs` 已在 `audio_params` 同时开 `enable_timestamp`（1.0 音色）与 `enable_subtitle`（2.0 音色，刘飞属此类），每句 json 的 `words` 为逐字 `{word,startTime,endTime}`，按原文打轴，1.2 倍速下准确。用 skill `assets/subtitles-volc.py`（复制到工程）对齐：有 words 的句子直接用，没有的回退 whisper。2026-09-14 之前合成的音频没有 words，需要重合成或走 whisper。
+- **字幕时间戳直接来自火山**：`scripts/tts.mjs` 已在 `audio_params` 同时开 `enable_timestamp`（1.0 音色）与 `enable_subtitle`（2.0 音色，刘飞属此类），每句 json 的 `words` 为逐字 `{word,startTime,endTime}`，按原文打轴，1.2 倍速下准确。用 skill `scripts/subtitles-volc.py`（复制到工程）对齐：有 words 的句子直接用，没有的回退 whisper。2026-09-14 之前合成的音频没有 words，需要重合成或走 whisper。
 - whisper 只作回退：`python3` asr.py`（Homebrew Python 升级会丢 mlx_whisper，venv 用 `/opt/homebrew/bin/python3.13` 建）。数字密集句编辑率 0.5 左右可接受，字符校验必须通过。
 - 旁白：句音频直接 concat（不插停顿），`loudnorm=I=-16:TP=-1.5:LRA=11` 后放 `renderer/public/narration.wav`。
 - 渲染：复制上一期 `renderer/`（index.jsx、SimonTalkBrand.jsx、render.mjs、public 字体），`node_modules` 软链到已有依赖目录（public 内不可用软链）。整片约 40 分钟，后台跑并用 until-grep 等 `RENDER_DONE`。

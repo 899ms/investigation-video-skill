@@ -6,10 +6,7 @@
 
 ## 先看资产
 
-- [30 秒成片](../assets/approved-preview-v2.mp4)
-- [三段拼板](../assets/approved-frames-v2.jpg)
-- [检查记录](../assets/approved-qa-v2.json)
-- [文件指纹](../assets/approved-checksums-v2.json)
+- 原始 30 秒成片、拼板、检查记录与指纹未随开源仓库附带；公开样片见 [assets/sample-preview.mp4](../assets/sample-preview.mp4)。
 - `assets/reference-project-v2/`：与成片对应的最小 Remotion 工程。
 
 对标：https://www.douyin.com/video/7681566244243344666 ，黑白夜谈《一口气看懂比特币》。当次对标分析只做章节与代表画面抽查，未完成原片连续听审、逐镜计时或全量下载。不要将推测的动画速度、视差、音乐表现写成已验证事实。复现自身样片的动作可直接查看工程。
