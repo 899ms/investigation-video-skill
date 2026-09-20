@@ -1,4 +1,4 @@
-# simontalk-investigation
+# investigation-video-skill
 
 一套**不露脸商业 / 消费调查长片**的完整生产流程，以 [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) 的形式开源。给 AI 智能体一句「帮我做关于 XXX 的视频」，它跑完调查、写稿、配音、找素材、Remotion 合成、混音、封面和八平台文案，出一条 10 分钟以上的横屏成片。
 
@@ -9,7 +9,7 @@
 
 ## 先看样片
 
-**▶️ [assets/sample-preview.mp4](assets/sample-preview.mp4)**（点进去在 GitHub 页面里直接播放，60 秒，960p）。这是一条正式发布成片《预制菜明示》的前 60 秒，原片 10 分 11 秒。
+**▶️ [assets/sample-preview.mp4](assets/sample-preview.mp4)**（点进去在 GitHub 页面里直接播放，60 秒，960p）。这是一条正式发布成片《预制菜明示》的前 60 秒，原片 10 分 11 秒。画面右上角的「Simon Talk」是作者账号的字标，仓库里的品牌组件已换成占位值，改法见文末。
 
 <img src="assets/sample-preview.gif" width="640" alt="样片前 14 秒动图：新闻报道原片做主体并带白描边，右侧花字给时间与人物，右上角固定品牌字标，底部整句字幕，左下角来源标注">
 
@@ -37,10 +37,10 @@
 | --- | --- |
 | `SKILL.md` | 技能入口，AI 读这个 |
 | `references/` | 各环节规则：叙事类型、写稿与素材、拼贴视觉、品牌与时间预算、封面与文案、流程手册、目录结构、验收 |
-| `assets/SimonTalkBrand.jsx` | Remotion 品牌字标组件 |
-| `assets/brand-stamp.py` | 封面字标固定合成：右上角，宽 22%，右距 4%，上距 3% |
+| `assets/BrandStamp.jsx` | Remotion 品牌字标组件，签名与强调色由配置传入 |
+| `assets/brand-stamp.py` | 封面字标固定合成：右上角，宽 22%，右距 4%，上距 3%，`--text` 传签名 |
 | `assets/check-publish-copy.py` | 八平台文案校验 |
-| `assets/publishing-reference/` | 文案模板和两张参考封面 |
+| `assets/publishing-reference/` | 八平台文案模板 |
 | `scripts/tts.mjs` `scripts/tts-s20.mjs` | 火山 TTS 合成，1.2 倍速，带逐字时间戳与缓存 |
 | `scripts/make-sentences.py` | 口播稿切句 |
 | `scripts/subtitles-volc.py` | 逐字时间戳生成字幕 |
@@ -66,7 +66,7 @@ Remotion 和 React 版本不要升。升级后出现过动画节奏错乱、布�
 
 ## 使用
 
-1. 把整个目录放进你的 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/simontalk-investigation`），或在对话里直接引用 `SKILL.md`。
+1. 把整个目录放进你的 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/investigation-video-skill`），或在对话里直接引用 `SKILL.md`。
 2. 配好 `.env` 和上表环境。
 3. `cd template/remotion && npm install`，确认 `npm run still` 能出一帧。
 4. 对 AI 说「帮我做一条关于 XXX 的视频」。
@@ -84,14 +84,14 @@ AI 会按 `SKILL.md` 走完全流程。中途任何阶段都能停下人工介�
 | `subtitles-volc.py` | `work/production/` | `audio-manifest-s20.json`、`renderer/timeline.json` |
 | `clipcheck.py`、`qa.py` | `work/production/` | `renderer/timeline.json`、`renderer/public/assets/`、`renders/` |
 | `mix-bgm.sh` | `work/production/` | `renderer/public/narration.wav`、`assets/bgm.mp3` |
-| `assets/SimonTalkBrand.jsx` | `work/production/renderer/` | Remotion 工程 |
+| `assets/BrandStamp.jsx` | `work/production/renderer/` | Remotion 工程 |
 | `assets/brand-stamp.py`、`assets/check-publish-copy.py` | 不用复制 | 传入封面图 / 文案文件路径即可 |
 
 直接在仓库根目录跑 `qa.py`、`mix-bgm.sh` 之类会报找不到 `renderer/...`，这是预期行为，不是脚本坏了。`template/remotion/` 只是一个能出帧的最小参考，正式工程按上面的目录另建。
 
 ## 改成你自己的账号
 
-- 品牌：`assets/SimonTalkBrand.jsx` 改字标，`references/brand-and-visual.md` 改强调色和时间预算，`assets/brand-stamp.py` 改字标位置。
+- 品牌：给 `assets/BrandStamp.jsx` 传你的 `brand` 对象（`signature`、`accent`、`wordmark`），`assets/brand-stamp.py --text` 传同一签名，`references/brand-and-visual.md` 改强调色和时间预算。
 - 选题范围与口吻：`references/editorial-and-materials.md`、`references/narrative-modes.md`。
 - 平台集合与字数限制：`assets/check-publish-copy.py`、`assets/publishing-reference/`。
 - 封面提示词用的是 [gbro-cover-design](https://github.com/pyang5166/gbro-cover-design)，标题公式和开场诊断用的是 [dbskill](https://github.com/dontbesilent2025/dbskill)，两者单独安装。

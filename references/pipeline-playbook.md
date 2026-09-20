@@ -7,7 +7,7 @@
 完整目录树与版本规则见 [项目文件夹结构](project-layout.md)。
 
 - 工程放 `projects/<date>-<slug>/`，下设 `work/research`（pages/ crops/ media/ screen/）、`work/production`、`work/covers`、`outputs/<题名>-完整交付v<N>/`。outputs 只由 `assets/finalize-outputs.py` 生成：成片、字幕、素材使用区间为实体拷贝，五份文档与发布包软链到知识库。
-- 正文、来源、覆盖、剪辑记录、检查、发布包只在知识库 `knowledge/<date> <题名>/材料/` 维护；工程 outputs 里放软链。收尾同轮更新本期入口、`SimonTalk.md` 索引、账号 README。
+- 正文、来源、覆盖、剪辑记录、检查、发布包只在知识库 `knowledge/<date> <题名>/材料/` 维护；工程 outputs 里放软链。收尾同轮更新本期入口、`<账号名>.md` 索引、账号 README。
 
 ## 1. 选题：热榜抓取
 
@@ -56,4 +56,4 @@
 - 裁好后用 skill `assets/brand-stamp.py` 盖固定字标（右上角、22% 宽），规则见 [封面与发布](covers-and-publishing.md#字标固定合成2026-09-14-起)。
 - 八平台文案一份 md：抖音、快手、B站、视频号、小红书、微博、公众号、YouTube，各含主推/备选标题、正文、话题、置顶评论，末尾共用免责段；CTA 与本期问题类型呼应。
 - 交付文档五份：口播稿、事实与来源、素材覆盖、素材与剪辑记录（含真实动态秒数与占比、去重源、片段数）、制作与检查（参数、已做检查、未做与需人工判断）。版本号随改动递增，旧版本保留。
-- 收尾最后一步固定跑 `python3 <skill>/assets/finalize-outputs.py <工程> <知识库期目录> <题名> <N>`，缺任何一份文档它会报错而不是生成半套目录；跑完再更新 README、知识库入口、SimonTalk.md 索引。
+- 收尾最后一步固定跑一个打包脚本（作者私有的 `finalize-outputs.py`，未随仓库附带；目录结构见 [project-layout.md](project-layout.md) 的 `outputs/`，可按其自行实现），缺任何一份文档它应报错而不是生成半套目录；跑完再更新 README、知识库入口、账号索引。

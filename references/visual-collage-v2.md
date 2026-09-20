@@ -29,11 +29,11 @@
 
 以 1920×1080、30fps 为例：蛋糕使用透明 PNG，约 4px 四向 `drop-shadow` 模拟白描边，后接柔投影；纸片小角度旋转约 −4°～3°，用轻微不规则 polygon 边缘。背景模糊约 23px，主体保持清晰；明暗、饱和度须按素材调整。短入场约 13–23 帧，之后保持文字稳定。以上是本例参数，不能未经观看就应用到所有素材与画幅。
 
-新主题选择相应主体物件；证据、数值和 Logo 不用生成图替代。当前账号品牌仍从配置读取，包内案例值为 SignPainter「Simon Talk」＋星芒＋底划和 #10C46F。保留原旁白、字幕时间戳及句序，视觉调整不触发重配音。
+新主题选择相应主体物件；证据、数值和 Logo 不用生成图替代。当前账号品牌仍从配置读取，包内占位值为 SignPainter 手写签名＋星芒＋底划和 #10C46F。保留原旁白、字幕时间戳及句序，视觉调整不触发重配音。
 
 ## 复现
 
-把 `assets/reference-project-v2/` 与 `assets/SimonTalkBrand.jsx` 一起复制到新的工作目录，保持工程对 `../SimonTalkBrand` 的引用。`public` 必须是实际文件，不能链接到外部素材目录。
+把 `template/remotion/` 与 `assets/BrandStamp.jsx` 一起复制到新的工作目录，保持工程对 `../../assets/BrandStamp.jsx` 的引用。`public` 必须是实际文件，不能链接到外部素材目录。
 
 ```sh
 # 在复制后的 reference-project-v2 目录内

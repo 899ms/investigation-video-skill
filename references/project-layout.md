@@ -27,7 +27,7 @@ work/
     clips.json                  裁切清单（源、起点、帧数）
     renderer/
       index.jsx                 Remotion 组合，卡片 kind 在此定义
-      SimonTalkBrand.jsx        字标组件（skill assets 复制来）
+      BrandStamp.jsx            字标组件（skill assets 复制来）
       render.mjs                stills <frames…> / video
       timeline.json subtitles.json
       public/narration.wav      loudnorm 后旁白
@@ -71,7 +71,7 @@ outputs/
     封面-3x4.png 封面-4x3.png
 ```
 
-另有 `选题/<YYYY-MM-DD> 热点选题候选.md` 存每日候选，`SimonTalk.md` 为账号索引，每期收尾同轮更新。
+另有 `选题/<YYYY-MM-DD> 热点选题候选.md` 存每日候选，`<账号名>.md` 为账号索引，每期收尾同轮更新。
 
 ## 版本规则
 

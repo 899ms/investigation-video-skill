@@ -2,14 +2,9 @@
 
 ## 当前品牌真源
 
-品牌组件以本仓库 `assets/SimonTalkBrand.jsx` 为准。
+品牌组件以本仓库 `assets/BrandStamp.jsx` 为准，签名文字、强调色、显示名由你的账号配置（一个 `brand` 对象）传入；封面字标由 `assets/brand-stamp.py --text` 传入同一签名。仓库不附带任何账号的头像与真实字标。
 
-- `accounts/simon-ai-lab/config.json` → `brand`。
-- `.claude/skills/shipai-changpian/SKILL.md` 与 `references/components.md` → 品牌版式说明。
-- `src/compose.mjs` → 搜索 `dockbrand / db-sig / db-spark / db-swoosh`，是已用的签名造型实现。
-- `assets/brand/simontalk-avatar.png` → 正式头像。
-
-2026-09-09 核对值：显示名 `SimonTalk`；签名文本 `Simon Talk`；强调色 `#10C46F`；强调色底的文字 `#06130b`。字标为 SignPainter 手写体＋四角星芒＋绿色甩笔底划。默认旧 signature dock 有墨绿灰 `#12160e`、网格和柔光，这是一个版式，不要求所有内容镜头都变深绿。
+包内占位值：显示名 `YourBrand`；签名文本 `Your Brand`；强调色 `#10C46F`；强调色底的文字 `#06130b`。字标为 SignPainter 手写体＋四角星芒＋绿色甩笔底划。默认旧 signature dock 有墨绿灰 `#12160e`、网格和柔光，这是一个版式，不要求所有内容镜头都变深绿。
 
 每次以当前配置为准，包内数值是复用起点。头像用于头像或关注卡，不把方形头像硬塞到右上角代替签名。没有关注场景时不额外加关注卡。
 
@@ -23,10 +18,10 @@
 
 ## 字标复用
 
-`assets/SimonTalkBrand.jsx` 使用原星芒与底划的路径、原签名字体。导入组件并传当前 `brand`，例如：
+`assets/BrandStamp.jsx` 使用原星芒与底划的路径、原签名字体。导入组件并传当前 `brand`，例如：
 
 ```jsx
-<SimonTalkBrand brand={account.brand} dark={isOverDarkFootage} />
+<BrandStamp brand={account.brand} dark={isOverDarkFootage} />
 ```
 
 示例采用 macOS 原生 SignPainter（`/System/Library/Fonts/Supplemental/SignPainter.ttc`），包里不分发系统字体。其他机器应先确认字体可用，或使用用户现有的矢量 Logo 导出；不要默默回退到普通衬线体。中文使用项目 Noto Sans SC。看到浏览器字体 404 或字形变成宋体时，先修字体加载，不要把替代字体当设计改动。

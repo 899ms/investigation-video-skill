@@ -20,12 +20,12 @@
 
 ## 最小工程
 
-`assets/reference-project/` 保留可运行代码、原样例完整时间戳（仅使用其中约 30 秒）、30 秒音轨、Noto Sans SC、实际使用的 shop 图片和视频。只复制必要素材，没有 node_modules、缓存、密钥、系统字体。
+`template/remotion/` 保留可运行代码、原样例完整时间戳（仅使用其中约 30 秒）、30 秒音轨、Noto Sans SC、实际使用的 shop 图片和视频。只复制必要素材，没有 node_modules、缓存、密钥、系统字体。
 
-本包 `assets/SimonTalkBrand.jsx` 已被该示例工程实际导入，以便检验复用路径。先将 **这两个资产一起**复制到新的工作区，保持 `reference-project/../SimonTalkBrand.jsx` 的相对关系，再运行：
+本包 `assets/BrandStamp.jsx` 已被该示例工程实际导入，以便检验复用路径。先将 **这两个资产一起**复制到新的工作区，保持 `template/remotion/index.jsx` 对 `../../assets/BrandStamp.jsx` 的相对关系，再运行：
 
 ```sh
-# 在复制后的 reference-project 中，使用已有的兼容依赖，或依 package.json 安装。
+# 在复制后的 template/remotion 中，使用已有的兼容依赖，或依 package.json 安装。
 npm install
 npm run still -- brand-check.png --frame=820 --scale=0.5
 npm run render

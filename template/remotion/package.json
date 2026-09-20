@@ -1,9 +1,9 @@
 {
-  "name": "simontalk-visual-collage-v2",
+  "name": "investigation-visual-template",
   "private": true,
   "scripts": {
-    "still": "remotion still index.jsx SimonTalkVisualV2",
-    "render": "remotion render index.jsx SimonTalkVisualV2 preview.mp4 --codec=h264 --crf=17 --concurrency=3"
+    "still": "remotion still index.jsx InvestigationVisual",
+    "render": "remotion render index.jsx InvestigationVisual preview.mp4 --codec=h264 --crf=17 --concurrency=3"
   },
   "dependencies": {
     "@remotion/cli": "4.0.508",

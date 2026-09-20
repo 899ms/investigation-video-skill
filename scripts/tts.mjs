@@ -123,7 +123,7 @@ export async function synthesize(text, outWav, { voice } = {}) {
     method: "POST",
     headers,
     body: JSON.stringify({
-      user: { uid: "simontalk" },
+      user: { uid: "investigation-video" },
       req_params: reqParams,
     }),
   });

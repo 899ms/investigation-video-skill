@@ -1,11 +1,11 @@
 ---
-name: simontalk-investigation
-description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，覆盖选题、事实核查、10分钟以上叙事、真实动态素材、配音字幕、CTA，以及AI封面和各平台发布文案。按当前请求执行阶段，保留已确认稿件和品牌；不自动公开发布。
+name: investigation-video-skill
+description: 制作或精修不露脸商业与消费调查视频，覆盖选题、事实核查、10分钟以上叙事、真实动态素材、配音字幕、CTA，以及AI封面和各平台发布文案。按当前请求执行阶段，保留已确认稿件和品牌；不自动公开发布。
 ---
 
-# SimonTalk 调查叙事视频
+# 调查叙事视频
 
-目标：故事由具体画面推进，机制由 MG 解释，结论有出处，品牌与现有 SimonTalk 保持一致。本包的 **30 秒视觉升级 v2 样片**保留为拼贴质感参考；长片同时遵循《零食称重》制作中确认的真实素材、动态叙事与发布要求。样片不代表长片素材已经够用。先看相应参考成品，再设计；参考的认可范围见各文件，不把一次认可扩大到全部后续版本。
+目标：故事由具体画面推进，机制由 MG 解释，结论有出处，品牌与账号配置保持一致。本包的 **30 秒视觉升级 v2 样片**保留为拼贴质感参考；长片同时遵循《零食称重》制作中确认的真实素材、动态叙事与发布要求。样片不代表长片素材已经够用。先看相应参考成品，再设计；参考的认可范围见各文件，不把一次认可扩大到全部后续版本。
 
 ## 先确定本轮范围
 
@@ -36,7 +36,7 @@ description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，�
 
 ## 品牌先行
 
-制作前读 [品牌与视觉](references/brand-and-visual.md)，核对当前账号 `brand` 配置，并查看真实 Logo。主要识别是 **SignPainter「Simon Talk」＋星芒＋底划、信号绿 #10C46F**；普通粗体 `SimonTalk` 不能替代签名字标。
+制作前读 [品牌与视觉](references/brand-and-visual.md)，核对当前账号 `brand` 配置，并查看真实 Logo。包内示例识别是 **SignPainter 手写签名＋星芒＋底划、强调色 #10C46F**；普通粗体账号名不能替代签名字标。
 
 - 右上角放品牌字标，保持安静；没有左上章节、页码式标题或常驻进度条。
 - **封面字标固定**：不让生图模型画签名，裁比例后用 `assets/brand-stamp.py` 合成，右上角、宽 = 图宽 22%、右距 4%、上距 3%，3:4 与 4:3 同规则，与成片右上角字标同几何。规则与验收见 [AI封面与发布文案](references/covers-and-publishing.md#字标固定合成2026-09-14-起)。
@@ -78,7 +78,7 @@ description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，�
 
 ## 可复用资源
 
-- 公共工序 `video-common`（`video-common/`）：事实核查与来源台账、AI 封面比例验收、平台文案机制、成片机器验收与交付边界、合规自查。本 skill 只保留 SimonTalk 特有的品牌、素材、叙事与阅读时间约定。
+- 公共工序 `video-common`（`video-common/`）：事实核查与来源台账、AI 封面比例验收、平台文案机制、成片机器验收与交付边界、合规自查。本 skill 只保留本账号特有的品牌、素材、叙事与阅读时间约定。
 - [长片制作流程](references/long-form-workflow.md)：选题热点栏、点名品牌的出处与申诉材料、时长、开头、素材覆盖、动态统计与CTA。
 - [叙事模式与口播去套路](references/narrative-modes.md)：六类核心问题、轮换规则、开场黑名单、写稿自检。
 - [项目文件夹结构](references/project-layout.md)：工程与知识库两套目录的完整树、各文件用途、版本规则。
@@ -86,7 +86,7 @@ description: 制作或精修 SimonTalk 不露脸商业与消费调查视频，�
 - [AI封面与发布文案](references/covers-and-publishing.md)：3:4和4:3生图、标题、平台文案与打包。
 - [视觉升级 v2](references/visual-collage-v2.md)：已认可的30秒质感样例、拼板、合成做法、最小工程与复现命令。
 - [旧品牌对齐样片](references/approved-example.md)：早期 30 秒 MP4、拼板及机制解释参考。
-- `assets/SimonTalkBrand.jsx`：可复用 Remotion/React 签名字标组件；品牌值由当前账号配置传入。
+- `assets/BrandStamp.jsx`：可复用 Remotion/React 签名字标组件；品牌值由当前账号配置传入。
 - `assets/brand-stamp.py`：封面字标固定合成（右上角、22% 宽，与视频字标同几何）；生图不再画签名。
 - `assets/publishing-reference/八平台发布文案-模板.md` + `assets/check-publish-copy.py`：发布文案固定模板与校验，平台顺序、字段、章节、置顶评论都固定；文案写完必须校验通过。
 - `assets/finalize-outputs.py`：收尾固定生成 `outputs/<题名>-完整交付v<N>/`（成片/字幕/使用区间实体拷贝，文档与发布包软链到知识库），每期必须用它，不手工建 outputs。
