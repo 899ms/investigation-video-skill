@@ -1,0 +1,14 @@
+{
+  "name": "simontalk-visual-collage-v2",
+  "private": true,
+  "scripts": {
+    "still": "remotion still index.jsx SimonTalkVisualV2",
+    "render": "remotion render index.jsx SimonTalkVisualV2 preview.mp4 --codec=h264 --crf=17 --concurrency=3"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.508",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "4.0.508"
+  }
+}
