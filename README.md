@@ -73,6 +73,22 @@ Remotion 和 React 版本不要升。升级后出现过动画节奏错乱、布�
 
 AI 会按 `SKILL.md` 走完全流程。中途任何阶段都能停下人工介入。
 
+### 脚本要复制到工程目录里跑
+
+`scripts/` 下的脚本不是在仓库目录里直接运行的。每期视频是一个独立工程（目录约定见 `references/project-layout.md`），脚本按 **自身所在位置** 找相对路径，所以要先复制进工程的 `work/production/`，再在那里执行：
+
+| 脚本 | 复制到 | 旁边要有 |
+| --- | --- | --- |
+| `tts.mjs` + `lib/`、`tts-s20.mjs` | `work/production/` | 工程根目录 `.env` |
+| `make-sentences.py` | `work/production/` | 口播稿 markdown（作为参数传入），输出 `sentences.json` |
+| `subtitles-volc.py` | `work/production/` | `audio-manifest-s20.json`、`renderer/timeline.json` |
+| `clipcheck.py`、`qa.py` | `work/production/` | `renderer/timeline.json`、`renderer/public/assets/`、`renders/` |
+| `mix-bgm.sh` | `work/production/` | `renderer/public/narration.wav`、`assets/bgm.mp3` |
+| `assets/SimonTalkBrand.jsx` | `work/production/renderer/` | Remotion 工程 |
+| `assets/brand-stamp.py`、`assets/check-publish-copy.py` | 不用复制 | 传入封面图 / 文案文件路径即可 |
+
+直接在仓库根目录跑 `qa.py`、`mix-bgm.sh` 之类会报找不到 `renderer/...`，这是预期行为，不是脚本坏了。`template/remotion/` 只是一个能出帧的最小参考，正式工程按上面的目录另建。
+
 ## 改成你自己的账号
 
 - 品牌：`assets/SimonTalkBrand.jsx` 改字标，`references/brand-and-visual.md` 改强调色和时间预算，`assets/brand-stamp.py` 改字标位置。
