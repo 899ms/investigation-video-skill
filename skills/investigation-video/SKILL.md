@@ -1,5 +1,5 @@
 ---
-name: investigation-video-skill
+name: investigation-video
 description: 制作或精修不露脸商业与消费调查视频，覆盖选题、事实核查、10分钟以上叙事、真实动态素材、配音字幕、CTA，以及AI封面和各平台发布文案。按当前请求执行阶段，保留已确认稿件和品牌；不自动公开发布。
 ---
 
@@ -78,7 +78,7 @@ description: 制作或精修不露脸商业与消费调查视频，覆盖选题�
 
 ## 可复用资源
 
-- 公共工序 `video-common`（`video-common/`）：事实核查与来源台账、AI 封面比例验收、平台文案机制、成片机器验收与交付边界、合规自查。本 skill 只保留本账号特有的品牌、素材、叙事与阅读时间约定。
+- 公共工序 `video-common`（同级的 `../video-common/`）：事实核查与来源台账、AI 封面比例验收、平台文案机制、成片机器验收与交付边界、合规自查。本 skill 只保留本账号特有的品牌、素材、叙事与阅读时间约定。
 - [长片制作流程](references/long-form-workflow.md)：选题热点栏、点名品牌的出处与申诉材料、时长、开头、素材覆盖、动态统计与CTA。
 - [叙事模式与口播去套路](references/narrative-modes.md)：六类核心问题、轮换规则、开场黑名单、写稿自检。
 - [项目文件夹结构](references/project-layout.md)：工程与知识库两套目录的完整树、各文件用途、版本规则。

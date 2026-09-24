@@ -1,11 +1,13 @@
-# investigation-video-skill
+# investigation-video：调查长片
+
+> [simon-skills](../../README.md) 合集的一部分。本仓库原名 `investigation-video-skill`，2026-09-24 并入合集，旧仓库地址会自动跳转到合集首页。
 
 一套**不露脸商业 / 消费调查长片**的完整生产流程，以 [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) 的形式开源。给 AI 智能体一句「帮我做关于 XXX 的视频」，它跑完调查、写稿、配音、找素材、Remotion 合成、混音、封面和八平台文案，出一条 10 分钟以上的横屏成片。
 
 它来自一个每天更新 2 到 3 条的真实账号。文档里的数字都是实测，每条规则都对应一次翻车。配套文章：
 
-- 上篇《AI 日更 3 条深度长片，单条 70 万播放：完整工作流》：选题方法、平台经验、品牌投诉怎么扛
-- 下篇《百万播放的 AI 长片，流程全部开源：一句话出 10 分钟成片》：本仓库的逐环节说明
+- 上篇[《用 AI 做热点长视频：单条 108 万播放，3 天涨粉近万的实操复盘》](https://x.com/HanZhang415188/status/2100857704617316717)：选题方法、平台经验、品牌投诉怎么扛
+- 下篇[《百万播放的 AI 长片，流程全部开源：一句话出 10 分钟成片》](https://x.com/HanZhang415188/status/2101571088891408767)：本 skill 的逐环节说明
 
 ## 先看样片
 
@@ -47,7 +49,7 @@
 | `scripts/mix-bgm.sh` | 旁白响度归一后混入侧链闪避配乐，视频流不重编码 |
 | `scripts/clipcheck.py` `scripts/qa.py` | 素材抽帧精查、成片机器验收 |
 | `template/remotion/` | 最小 Remotion 参考工程，含时间轴、字体和一段样例素材 |
-| `video-common/` | 账号无关的公共工序：事实核查、封面验收、平台文案机制、交付验收、合规自查 |
+| `../video-common/` | 合集共用的公共工序：事实核查、封面验收、平台文案机制、交付验收、合规自查 |
 
 ## 环境
 
@@ -62,11 +64,11 @@
 
 Remotion 和 React 版本不要升。升级后出现过动画节奏错乱、布局漂移和黑帧，固定这组版本后全部消失。
 
-火山引擎凭证放在仓库根目录 `.env`，字段见 `.env.example`。仓库不附带配乐，`scripts/mix-bgm.sh` 默认读 `assets/bgm.mp3`，自备一段无版权音乐。
+火山引擎凭证放在本 skill 目录（`skills/investigation-video/`）的 `.env`，字段见 `.env.example`。仓库不附带配乐，`scripts/mix-bgm.sh` 默认读 `assets/bgm.mp3`，自备一段无版权音乐。
 
 ## 使用
 
-1. 把整个目录放进你的 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/investigation-video-skill`），或在对话里直接引用 `SKILL.md`。
+1. 把 `skills/investigation-video` 和 `skills/video-common` 一起放进你的 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/`，软链也行，两个要平级），或在对话里直接引用 `SKILL.md`。安装命令见[合集 README](../../README.md)。
 2. 配好 `.env` 和上表环境。
 3. `cd template/remotion && npm install`，确认 `npm run still` 能出一帧。
 4. 对 AI 说「帮我做一条关于 XXX 的视频」。
@@ -87,7 +89,7 @@ AI 会按 `SKILL.md` 走完全流程。中途任何阶段都能停下人工介�
 | `assets/BrandStamp.jsx` | `work/production/renderer/` | Remotion 工程 |
 | `assets/brand-stamp.py`、`assets/check-publish-copy.py` | 不用复制 | 传入封面图 / 文案文件路径即可 |
 
-直接在仓库根目录跑 `qa.py`、`mix-bgm.sh` 之类会报找不到 `renderer/...`，这是预期行为，不是脚本坏了。`template/remotion/` 只是一个能出帧的最小参考，正式工程按上面的目录另建。
+直接在 skill 目录里跑 `qa.py`、`mix-bgm.sh` 之类会报找不到 `renderer/...`，这是预期行为，不是脚本坏了。`template/remotion/` 只是一个能出帧的最小参考，正式工程按上面的目录另建。
 
 ## 改成你自己的账号
 

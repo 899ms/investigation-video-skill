@@ -1,4 +1,6 @@
-# whiteboard-video-skill
+# whiteboard-video：手绘白板讲解视频
+
+> [simon-skills](../../README.md) 合集的一部分。
 
 **手绘白板风格的"边画边讲"讲解视频**，以 [Claude Code skill](https://docs.anthropic.com/en/docs/claude-code) 的形式开源。给 AI 智能体一句选题，它查资料、写旁白、画场景、配音对字幕、逐笔渲染、混配乐，交回四样东西：一条 1080p 成片、横竖两张封面、一份写好五个候选标题和各平台文案的发布稿、一份资料来源。
 
@@ -45,7 +47,8 @@
 | 路径 | 说明 |
 | --- | --- |
 | `SKILL.md` | 技能入口，AI 读这个 |
-| `references/` | 场景 API、版式坐标、贴纸与 Logo、发布文案、事实核查、合规、验收 |
+| `references/` | 场景 API、版式坐标、贴纸与 Logo、发布文案 |
+| `../video-common/` | 合集共用的公共工序：事实核查、合规、成片验收 |
 | `bin/wb` | 命令行：`new` `scenes` `stills` `image` `logo` `tts` `render` `mix` `cover` `build` `clean` |
 | `lib/scene-dsl.js` | 场景 DSL：一行代码一个元素，导出 Excalidraw 场景图、旁白稿、封面 |
 | `lib/render.html` `lib/render.js` | 逐笔渲染器：子路径顺序描边、双描边 A/B 层、按字数排期、铅笔跟随、并行出帧 |
@@ -73,8 +76,8 @@ macOS 上实测。Linux 应该能跑，`wb open` 用的 `open` 命令除外。
 ## 使用
 
 ```bash
-git clone https://github.com/trustfuture/whiteboard-video-skill.git
-cd whiteboard-video-skill
+git clone https://github.com/trustfuture/simon-skills.git
+cd simon-skills/skills/whiteboard-video
 npm install
 cp .env.example .env          # 填火山凭证和音色
 
@@ -83,7 +86,7 @@ mkdir -p episodes && cp -R examples/* episodes/
 bin/wb build 懂很多道理          # 约一分钟，成片在 build/<期>/outputs/final.mp4
 ```
 
-然后把整个目录放进 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/whiteboard-video`，也可以软链过去），对它说：
+然后把 `skills/whiteboard-video` 和 `skills/video-common` 一起放进 AI 工具的 skills 目录（Claude Code 是 `~/.claude/skills/`，软链也行，两个要平级，安装命令见[合集 README](../../README.md)），对它说：
 
 > 做一期白板视频：为什么定了计划总是坚持不下去
 
@@ -108,7 +111,7 @@ bin/wb build 计划                         # 出片
 
 ## 许可
 
-- 代码与文档：MIT。
+- 代码与文档：MIT，见合集根目录 `LICENSE`。
 - `assets/fonts/Xiaolai-Regular.ttf`：[小赖字体](https://github.com/lxgw/kose-font)，SIL Open Font License 1.1，许可证见 `assets/fonts/OFL.txt`。
 - `examples/` 里的贴纸由 codex 生成，随示例一起提供，可自由使用。
 - 用 `wb logo` 取到的公司 Logo 版权归各自所有者，只适合在评论和报道语境中原样使用。
